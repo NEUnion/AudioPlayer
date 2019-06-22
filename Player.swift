@@ -3,14 +3,16 @@
 //  Visbot
 //
 //  Created by CXY on 2019/5/28.
-//  Copyright © 2019 ubt. All rights reserved.
+//  Copyright © 2019 CXY. All rights reserved.
 //
 
 import Alamofire
 
-private func PlayerLog(_ items: Any...) {
+private func PlayerLog<T>(_ message:T, file: String = #file, funcName: String = #function, lineNum: Int = #line) {
     #if DEBUG
-    print(items)
+    let file = (file as NSString).lastPathComponent;
+    // 文件名：行数---要打印的信息
+    print("\(file):(\(lineNum))--\(message)");
     #endif
 }
 
